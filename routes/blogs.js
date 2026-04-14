@@ -41,6 +41,9 @@ router.put('/:id', protect, async (req, res) => {
     res.json({ success: true, data: updatedBlog })
   } catch (error) {
     console.error('Error updating blog:', error.message)
+    if (error.name === 'CastError') {
+      return res.status(400).json({ success: false, error: 'Invalid ID format' })
+    }
     res.status(500).json({ success: false, error: 'Failed to update blog' })
   }
 })
