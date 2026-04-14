@@ -15,6 +15,7 @@ import whatsappRouter from './routes/whatsapp.js'
 import categoriesRouter from './routes/categories.js'
 import faqsRouter from './routes/faqs.js'
 import assetsRouter from './routes/assets.js'
+import blogsRouter from './routes/blogs.js'
 import { scanAssets } from './utils/assetScanner.js'
 import Admin from './models/Admin.js'
 import Product from './models/Product.js'
@@ -66,6 +67,7 @@ app.use('/api/whatsapp', whatsappRouter)
 app.use('/api/assets', assetsRouter)
 app.use('/api/categories', categoriesRouter)
 app.use('/api/faqs', faqsRouter)
+app.use('/api/blogs', blogsRouter)
 
 // Health check
 app.get('/api/health', (_, res) => res.json({ status: 'ok', dbConnected, time: new Date() }))
